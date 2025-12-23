@@ -1,53 +1,55 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { Carousel } from "antd";
 import Navigation from "@/components/navigation";
 
 const facilities = [
   {
-    name: "New Booking System",
+    name: "New Booking System 1",
     description:
       "Streamlined online booking system for hassle-free reservations. Book your slots anytime, anywhere with our user-friendly interface.",
     image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=800",
   },
   {
-    name: "Membership Plans",
+    name: "Membership Plans 2",
     description:
       "Flexible membership options tailored to your needs. Choose from various plans with exclusive benefits and privileges.",
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800",
   },
   {
-    name: "Training Programs",
+    name: "Training Programs 3",
     description:
       "Professional coaching and training programs for all skill levels. Improve your game with expert guidance.",
     image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800",
   },
   {
-    name: "Event Hosting",
+    name: "Event Hosting 4",
     description:
       "Host your special events in our premium venues. Perfect for corporate events, celebrations, and social gatherings.",
     image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800",
   },
   {
-    name: "Pro Shop",
+    name: "Pro Shop 5",
     description:
       "Premium equipment and apparel from top brands. Get everything you need for your perfect game.",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800",
   },
   {
-    name: "Professional Lessons",
+    name: "Professional Lessons 6",
     description:
       "One-on-one coaching with certified professionals. Personalized instruction to help you reach your goals.",
     image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
   },
   {
-    name: "Clubhouse Dining",
+    name: "Clubhouse Dining 7",
     description:
       "Fine dining experience with panoramic views. Enjoy gourmet cuisine and refreshing beverages in elegant settings.",
     image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800",
   },
   {
-    name: "Tournament Hosting",
+    name: "Tournament Hosting 8",
     description:
       "World-class facilities for hosting tournaments and competitions. Complete event management support available.",
     image: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800",
@@ -61,119 +63,183 @@ const galleryImages = [
     span: { row: 1, col: 1 },
   },
   {
-    id: 12,
+    id: 2,
     url: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&q=80",
     span: { row: 1, col: 1 },
   },
   {
-    id: 2,
+    id: 3,
     url: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&q=80",
     span: { row: 2, col: 1 },
   },
   {
-    id: 3,
+    id: 4,
     url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
     span: { row: 1, col: 1 },
   },
   {
-    id: 4,
+    id: 5,
     url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80",
     span: { row: 1, col: 2 },
   },
   {
-    id: 5,
+    id: 6,
     url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
     span: { row: 2, col: 1 },
   },
   {
-    id: 6,
+    id: 7,
     url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80",
     span: { row: 1, col: 1 },
   },
   {
-    id: 7,
+    id: 8,
     url: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&q=80",
     span: { row: 1, col: 1 },
   },
   {
-    id: 8,
-    url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&q=80",
-    span: { row: 1, col: 2 },
-  },
-  {
     id: 9,
-    url: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=800&q=80",
+    url: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&q=80",
     span: { row: 1, col: 1 },
   },
   {
     id: 10,
+    url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&q=80",
+    span: { row: 1, col: 2 },
+  },
+  
+  {
+    id: 11,
+    url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&q=80",
+    span: { row: 1, col: 1 },
+  },
+  {
+    id: 12,
     url: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&q=80",
     span: { row: 1, col: 1 },
   },
   {
-    id: 11,
+    id: 13,
     url: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=80",
     span: { row: 2, col: 1 },
   },
   {
-    id: 12,
+    id: 14,
     url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
     span: { row: 1, col: 1 },
   },
+  {
+    id: 15,
+    url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
+    span: { row: 1, col: 1 },
+  },
+  {
+    id: 16,
+    url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
+    span: { row: 1, col: 1 },
+  },
+  {
+    id: 17,
+    url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
+    span: { row: 1, col: 1 },
+  },
+  {
+    id: 18,
+    url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
+    span: { row: 1, col: 1 },
+  },
+   {
+    id: 19,
+    url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
+    span: { row: 1, col: 1 },
+  },
+ 
 ];
 
 function PinterestGallery() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
-
   return (
-    <div className="grid grid-cols-4 auto-rows-[200px] gap-4">
-      {galleryImages.map((image) => {
-        const isHovered = hoveredId === image.id;
-        const rowSpan = isHovered ? image.span.row + 1 : image.span.row;
-        const colSpan = isHovered ? image.span.col + 1 : image.span.col;
-
-        return (
-          <motion.div
-            key={image.id}
-            layout
-            onMouseEnter={() => setHoveredId(image.id)}
-            onMouseLeave={() => setHoveredId(null)}
-            style={{
-              gridRow: `span ${rowSpan}`,
-              gridColumn: `span ${colSpan}`,
-            }}
-            transition={{
-              layout: {
-                duration: 0.4,
-                ease: [0.4, 0, 0.2, 1],
-              },
-            }}
-            className="relative overflow-hidden rounded-xl cursor-pointer group"
-          >
-            <motion.img
-              src={image.url}
-              alt={`Gallery image ${image.id}`}
-              className="w-full h-full object-cover"
-              // layout="fill"
-              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-            />
+    <div className="max-w-6xl mx-auto relative">
+      <Carousel
+        autoplay
+        autoplaySpeed={4000}
+        dots={true}
+        arrows={false}
+        dotPosition="bottom"
+        slidesToShow={3}
+        slidesToScroll={1}
+        infinite={true}
+        draggable={true}
+        swipe={true}
+        swipeToSlide={true}
+        touchMove={true}
+        responsive={[
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              arrows: false,
+              draggable: true,
+            },
+          },
+          {
+            breakpoint: 640,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows: false,
+              draggable: true,
+            },
+          },
+        ]}
+      >
+        {galleryImages.map((image) => (
+          <div key={image.id} className="px-2">
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isHovered ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 flex items-end p-6"
-              style={{
-                background: isHovered ? 'linear-gradient(to top, rgba(26, 89, 70, 0.95), rgba(26, 89, 70, 0.6), transparent)' : 'transparent'
-              }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative h-[400px] rounded-2xl overflow-hidden shadow-lg group cursor-grab active:cursor-grabbing"
             >
-              <div className="text-white">
-                <h3 className="text-xl font-bold mb-1" style={{ color: '#ad8b3a' }}>Daman Club Moment</h3>
-                <p className="text-sm" style={{ color: '#f5f5f5' }}>Captured excellence</p>
+              <Image
+                src={image.url}
+                alt={`Gallery image ${image.id}`}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a5946]/95 via-[#1a5946]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-bold mb-1" style={{ color: '#ad8b3a' }}>
+                    Daman Club Moment
+                  </h3>
+                  <p className="text-sm" style={{ color: '#f5f5f5' }}>
+                    Captured excellence
+                  </p>
+                </div>
               </div>
             </motion.div>
-          </motion.div>
-        );
-      })}
+          </div>
+        ))}
+      </Carousel>
+
+      <style jsx global>{`
+        .slick-dots {
+          bottom: -40px !important;
+        }
+        .slick-dots li button {
+          background: #ad8b3a !important;
+          opacity: 0.4;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+        .slick-dots li.slick-active button {
+          opacity: 1;
+          width: 30px;
+          border-radius: 5px;
+        }
+      `}</style>
     </div>
   );
 }
@@ -311,22 +377,51 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
+            {[
+              {
+                id: 1,
+                image: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80",
+                date: "December 11, 2025",
+                title: "Major Facility Upgrade Announcement",
+                description: "Experience our enhanced facilities with state-of-the-art amenities and modern infrastructure..."
+              },
+              {
+                id: 2,
+                image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&q=80",
+                date: "December 12, 2025",
+                title: "Annual Championship Results",
+                description: "Celebrating excellence! Congratulations to all participants in this year's annual championship tournament..."
+              },
+              {
+                id: 3,
+                image: "https://images.unsplash.com/photo-1592919505780-303950717480?w=800&q=80",
+                date: "December 13, 2025",
+                title: "New Junior Training Program Launch",
+                description: "Introducing our expanded junior development program with professional coaching and modern facilities..."
+              }
+            ].map((item) => (
               <div
-                key={item}
+                key={item.id}
                 className="bg-white border-2 border-[#1a5946]/20 rounded-2xl overflow-hidden hover:transform hover:scale-105 hover:shadow-2xl transition-all"
               >
-                <div className="h-48 bg-[#1a5946]"></div>
+                <div className="h-48 overflow-hidden relative">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <div className="p-6">
                   <div className="text-sm mb-2 font-semibold" style={{ color: '#ad8b3a' }}>
-                    December {10 + item}, 2025
+                    {item.date}
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-gray-900">
-                    Major Facility Upgrade Announcement
+                    {item.title}
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    Experience our enhanced facilities with state-of-the-art
-                    amenities and modern infrastructure...
+                    {item.description}
                   </p>
                   <button className="font-semibold hover:opacity-80" style={{ color: '#ad8b3a' }}>
                     Read More →
@@ -372,11 +467,13 @@ export default function Home() {
                       transition={{ duration: 0.2 }}
                       className="absolute z-50 left-1/2 -translate-x-1/2 bottom-full mb-4 w-80 bg-white border-2 border-[#ad8b3a] rounded-xl shadow-2xl overflow-hidden"
                     >
-                      <div className="h-40 overflow-hidden">
-                        <img
+                      <div className="h-40 overflow-hidden relative">
+                        <Image
                           src={facility.image}
                           alt={facility.name}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
+                          sizes="320px"
                         />
                       </div>
                       <div className="p-4">

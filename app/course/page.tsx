@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Navigation from '@/components/navigation';
 
 export default function CoursePage() {
@@ -112,10 +113,12 @@ export default function CoursePage() {
               transition={{ duration: 0.6 }}
               className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl"
             >
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1200&q=80"
                 alt="Daman Club History"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
           </div>
@@ -237,23 +240,32 @@ export default function CoursePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
+            {[
+              { id: 1, image: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80", hole: 1, par: 3 },
+              { id: 2, image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&q=80", hole: 2, par: 4 },
+              { id: 3, image: "https://images.unsplash.com/photo-1592919505780-303950717480?w=800&q=80", hole: 3, par: 4 },
+              { id: 4, image: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80", hole: 4, par: 5 },
+              { id: 5, image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", hole: 5, par: 3 },
+              { id: 6, image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&q=80", hole: 6, par: 4 }
+            ].map((item) => (
               <motion.div
-                key={item}
+                key={item.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: item * 0.1 }}
+                transition={{ duration: 0.6, delay: item.id * 0.1 }}
                 className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group"
               >
-                <img
-                  src={`https://images.unsplash.com/photo-${1535131749006 + item * 1000}-b7f58c99034b?w=800&q=80`}
-                  alt={`Course view ${item}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                <Image
+                  src={item.image}
+                  alt={`Course view Hole ${item.hole}`}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a5946]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <div className="text-white">
-                    <h4 className="text-lg font-bold" style={{ color: '#ad8b3a' }}>Hole {item}</h4>
-                    <p className="text-sm">Par {item % 2 === 0 ? '4' : '3'}</p>
+                    <h4 className="text-lg font-bold" style={{ color: '#ad8b3a' }}>Hole {item.hole}</h4>
+                    <p className="text-sm">Par {item.par}</p>
                   </div>
                 </div>
               </motion.div>
@@ -305,10 +317,12 @@ export default function CoursePage() {
               transition={{ duration: 0.6 }}
               className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl"
             >
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&q=80"
                 alt="Junior Development Program"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
 

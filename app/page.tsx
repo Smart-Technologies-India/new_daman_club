@@ -107,7 +107,7 @@ const galleryImages = [
     url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&q=80",
     span: { row: 1, col: 2 },
   },
-  
+
   {
     id: 11,
     url: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&q=80",
@@ -148,12 +148,11 @@ const galleryImages = [
     url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
     span: { row: 1, col: 1 },
   },
-   {
+  {
     id: 19,
     url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
     span: { row: 1, col: 1 },
   },
- 
 ];
 
 function PinterestGallery() {
@@ -164,7 +163,7 @@ function PinterestGallery() {
         autoplaySpeed={4000}
         dots={true}
         arrows={false}
-        dotPosition="bottom"
+        dotPlacement="bottom"
         slidesToShow={3}
         slidesToScroll={1}
         infinite={true}
@@ -199,7 +198,7 @@ function PinterestGallery() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="relative h-[400px] rounded-2xl overflow-hidden shadow-lg group cursor-grab active:cursor-grabbing"
+              className="relative h-100 rounded-2xl overflow-hidden shadow-lg group cursor-grab active:cursor-grabbing"
             >
               <Image
                 src={image.url}
@@ -208,12 +207,15 @@ function PinterestGallery() {
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a5946]/95 via-[#1a5946]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+              <div className="absolute inset-0 bg-linear-to-t from-[#1a5946]/95 via-[#1a5946]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-xl font-bold mb-1" style={{ color: '#ad8b3a' }}>
+                  <h3
+                    className="text-xl font-bold mb-1"
+                    style={{ color: "#ad8b3a" }}
+                  >
                     Daman Club Moment
                   </h3>
-                  <p className="text-sm" style={{ color: '#f5f5f5' }}>
+                  <p className="text-sm" style={{ color: "#f5f5f5" }}>
                     Captured excellence
                   </p>
                 </div>
@@ -258,20 +260,19 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1920')] bg-cover bg-center opacity-10"></div>
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+          <h6 className="text-xl md:text-2xl mb-4 text-gray-600">Dive into Ultimate Luxury at</h6>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-gray-900">
-            Experience Excellence at{" "}
-            <span style={{ color: '#ad8b3a' }}>Daman&apos;s Premier Club</span>
+            The <span style={{ color: "#ad8b3a" }}>Daman Club</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            A perfect blend of luxury, sport, and scenic beauty offering an
-            unforgettable experience for members of all levels
+            Daman&apos;s first members-only club; spread across three acres of land in the heart of the City, this luxurious Club is an ideal getaway from all the hustle and bustle of city Life. Surround yourself with cool sea breezes, astounding views on walkable distance and sublime services that add a golden touch to your business or leisure experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-[#ad8b3a] hover:bg-[#8d7330] text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-xl">
-              Book Your Visit
+              BECOME A MEMBER
             </button>
             <button className="border-2 border-[#ad8b3a] text-[#ad8b3a] hover:bg-[#ad8b3a]/10 px-8 py-4 rounded-full text-lg font-semibold transition-colors">
-              Contact Us
+              BOOK NOW
             </button>
           </div>
         </div>
@@ -282,19 +283,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              About the <span style={{ color: '#ad8b3a' }}>Club</span>
+              An Escape from <span style={{ color: "#ad8b3a" }}>Reality</span>
             </h2>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Nestled in the heart of Daman, our premier club offers a perfect
-                blend of history, sport, and scenic beauty. Set against iconic
-                landscapes, the lush grounds provide a unique and memorable
-                experience for members of all levels.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                A symbol of inclusivity and excellence, our facilities combine
-                modern amenities with timeless charm. Our strategic layout
-                welcomes seasoned enthusiasts while embracing beginners alike.
+                Experience our outdoor swimming pool to unwind yourself from the stress of
+                everyday life. Watch your Kids have a fantastic time in our kids pool while you relax
+                and get served at our poolside area.
               </p>
             </div>
           </div>
@@ -302,77 +297,174 @@ export default function Home() {
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <div className="bg-white border-2 border-[#ad8b3a]/30 p-8 rounded-2xl hover:border-[#ad8b3a] hover:shadow-xl transition-all">
-              <div className="text-5xl mb-4" style={{ color: '#ad8b3a' }}>🏆</div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">Inclusivity for All</h3>
-              <p className="text-gray-600">
-                Experience premier facilities, welcoming members of all skill
-                levels to embrace excellence.
-              </p>
-            </div>
-            <div className="bg-white border-2 border-[#ad8b3a]/30 p-8 rounded-2xl hover:border-[#ad8b3a] hover:shadow-xl transition-all">
-              <div className="text-5xl mb-4" style={{ color: '#ad8b3a' }}>🎯</div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">On-Ground Concierge</h3>
-              <p className="text-gray-600">
-                Seamless assistance with our dedicated concierge, ensuring a
-                hassle-free experience.
-              </p>
-            </div>
-            <div className="bg-white border-2 border-[#ad8b3a]/30 p-8 rounded-2xl hover:border-[#ad8b3a] hover:shadow-xl transition-all">
-              <div className="text-5xl mb-4" style={{ color: '#ad8b3a' }}>⭐</div>
+              <div className="text-5xl mb-4" style={{ color: "#ad8b3a" }}>
+                🏊
+              </div>
               <h3 className="text-2xl font-bold mb-3 text-gray-900">
-                World-Class Facilities
+                Swimming Pool
               </h3>
               <p className="text-gray-600">
-                Discover premium amenities, including modern clubhouse, practice
-                areas, and more.
+                Experience our outdoor swimming pool to unwind yourself from the stress of everyday life.
+              </p>
+            </div>
+            <div className="bg-white border-2 border-[#ad8b3a]/30 p-8 rounded-2xl hover:border-[#ad8b3a] hover:shadow-xl transition-all">
+              <div className="text-5xl mb-4" style={{ color: "#ad8b3a" }}>
+                🎪
+              </div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                Event Venue
+              </h3>
+              <p className="text-gray-600">
+                Magnificent experience for you and your guests with both indoor and outdoor event spaces.
+              </p>
+            </div>
+            <div className="bg-white border-2 border-[#ad8b3a]/30 p-8 rounded-2xl hover:border-[#ad8b3a] hover:shadow-xl transition-all">
+              <div className="text-5xl mb-4" style={{ color: "#ad8b3a" }}>
+                ✨
+              </div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                Luxury Privileges
+              </h3>
+              <p className="text-gray-600">
+                Every corner with a Luxury Touch. Setting new standards of Luxury and Exclusive Lifestyle in Daman.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Statistics Section */}
+      {/* Luxurious Services Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Luxurious <span style={{ color: "#ad8b3a" }}>Services</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+              Every corner with a Luxury Touch
+            </p>
+            <p className="text-gray-700 max-w-3xl mx-auto">
+              By setting new standards of Luxury and Exclusive Lifestyle in Daman, we offer
+              the audience of this beautiful city an unwinding and exclusive venue to settle
+              down for a stress-free Journey!
+            </p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2" style={{ color: '#ad8b3a' }}>
-                100+
+              <div className="text-5xl mb-4">🎮</div>
+              <div
+                className="text-xl font-bold mb-2"
+                style={{ color: "#ad8b3a" }}
+              >
+                Game Zone
               </div>
-              <div className="text-gray-600 text-lg font-medium">Events Done</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2" style={{ color: '#ad8b3a' }}>
-                18
+              <div className="text-5xl mb-4">🍽️</div>
+              <div
+                className="text-xl font-bold mb-2"
+                style={{ color: "#ad8b3a" }}
+              >
+                Restaurant
               </div>
-              <div className="text-gray-600 text-lg font-medium">Premium Facilities</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2" style={{ color: '#ad8b3a' }}>
-                50+
+              <div className="text-5xl mb-4">🛏️</div>
+              <div
+                className="text-xl font-bold mb-2"
+                style={{ color: "#ad8b3a" }}
+              >
+                Rooms
               </div>
-              <div className="text-gray-600 text-lg font-medium">Training Programs</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2" style={{ color: '#ad8b3a' }}>
-                25+
+              <div className="text-5xl mb-4">🎭</div>
+              <div
+                className="text-xl font-bold mb-2"
+                style={{ color: "#ad8b3a" }}
+              >
+                Theater
               </div>
-              <div className="text-gray-600 text-lg font-medium">Years of Excellence</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* News & Events Section */}
+      {/* Membership Benefits Section */}
       <section id="events" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              News & <span style={{ color: '#ad8b3a' }}>Events</span>
+              Membership <span style={{ color: "#ad8b3a" }}>Benefits</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Stay on course with the latest updates and events at Daman Club,
-              where every moment is crafted for enthusiasts alike.
+              Well, as Exclusive as the Club is, the members are also from an Exclusive Class!
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                id: 1,
+                icon: "🏨",
+                title: "World-class Stay Benefits",
+                description:
+                  "Our spacious and well-appointed rooms are the perfect place to relax and recharge, with all the modern amenities and attentive service you need to feel pampered.",
+              },
+              {
+                id: 2,
+                icon: "🧘",
+                title: "Body, Mind and Soul",
+                description:
+                  "We take privilege to offer you health centric amenities to give you a Luxurious Serene experience. With a gym facility, Yoga, and Meditation, one can achieve the perfect symphony of relaxation and peace from within.",
+              },
+              {
+                id: 3,
+                icon: "👨‍👩‍👧‍👦",
+                title: "Family Fun Zone",
+                description:
+                  "The Daman Club offers you unforgettable moments with your loved ones and gives everyone a magical experience for one and all. We offer games of Snooker, Air Hockey, Foosball Table, Billiard, Chess, and Carrom to bond over games.",
+              },
+              {
+                id: 4,
+                icon: "💼",
+                title: "Corporate Arrangements",
+                description:
+                  "Our uptown A/V Room, which provides everything a corporate is searching for, will help you start your business gatherings, presentations, training sessions, or interviews with panache.",
+              },
+            ].map((item) => (
+              <div
+                key={item.id}
+                className="bg-white border-2 border-[#ad8b3a]/20 rounded-2xl p-8 hover:border-[#ad8b3a] hover:shadow-2xl transition-all"
+              >
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3
+                  className="text-xl font-bold mb-4"
+                  style={{ color: "#ad8b3a" }}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ideal Venue Section */}
+      <section id="facilities" className="py-20 bg-neutral-50 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Ideal Venue For{" "}
+              <span style={{ color: "#ad8b3a" }}>Any Event</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our club provides both indoor and outdoor event spaces, resulting in a
+              magnificent experience for you and your guests. With everything conveniently located
+              under one roof, you and guests can simply access their accommodations, the swimming
+              pool, the game zone, the sports area, the magical event venue, and the
+              delectable cuisine.
             </p>
           </div>
 
@@ -380,113 +472,35 @@ export default function Home() {
             {[
               {
                 id: 1,
-                image: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80",
-                date: "December 11, 2025",
-                title: "Major Facility Upgrade Announcement",
-                description: "Experience our enhanced facilities with state-of-the-art amenities and modern infrastructure..."
+                icon: "💒",
+                title: "Weddings",
+                description:
+                  "Celebrate your love story in style at The Daman Club, with our elegant Lawn, stunning views, and attentive staff.",
               },
               {
                 id: 2,
-                image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&q=80",
-                date: "December 12, 2025",
-                title: "Annual Championship Results",
-                description: "Celebrating excellence! Congratulations to all participants in this year's annual championship tournament..."
+                icon: "🎉",
+                title: "Parties",
+                description:
+                  "Host an unforgettable party for your loved ones at The Daman Club, with our spacious event spaces, delicious food and drinks, and lively atmosphere.",
               },
               {
                 id: 3,
-                image: "https://images.unsplash.com/photo-1592919505780-303950717480?w=800&q=80",
-                date: "December 13, 2025",
-                title: "New Junior Training Program Launch",
-                description: "Introducing our expanded junior development program with professional coaching and modern facilities..."
-              }
-            ].map((item) => (
+                icon: "💼",
+                title: "Conference",
+                description:
+                  "Bring your team together for a productive and successful conference at The Daman Club, with our state-of-the-art facilities, comfortable accommodations, and experienced event planners.",
+              },
+            ].map((event) => (
               <div
-                key={item.id}
-                className="bg-white border-2 border-[#1a5946]/20 rounded-2xl overflow-hidden hover:transform hover:scale-105 hover:shadow-2xl transition-all"
+                key={event.id}
+                className="bg-white p-8 rounded-xl hover:bg-[#ad8b3a]/5 border-2 border-[#ad8b3a]/30 hover:border-[#ad8b3a] transition-all cursor-pointer shadow-sm hover:shadow-xl"
               >
-                <div className="h-48 overflow-hidden relative">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="text-sm mb-2 font-semibold" style={{ color: '#ad8b3a' }}>
-                    {item.date}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    {item.description}
-                  </p>
-                  <button className="font-semibold hover:opacity-80" style={{ color: '#ad8b3a' }}>
-                    Read More →
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Facilities Section */}
-      <section id="facilities" className="py-20 bg-neutral-50 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Discover Our Premium{" "}
-              <span style={{ color: '#ad8b3a' }}>Facilities</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              From professional coaching to top-tier facilities, we offer a
-              range of services designed to enhance your experience.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {facilities.map((facility, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl hover:bg-[#ad8b3a]/5 border-2 border-[#ad8b3a]/30 hover:border-[#ad8b3a] transition-all cursor-pointer relative shadow-sm hover:shadow-xl"
-                onMouseEnter={() => setHoveredFacility(index)}
-                onMouseLeave={() => setHoveredFacility(null)}
-              >
-                <h3 className="text-xl font-bold mb-2 text-gray-900">{facility.name}</h3>
-                <p className="text-gray-600">Premium services available</p>
-
-                <AnimatePresence>
-                  {hoveredFacility === index && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                      animate={{ opacity: 1, scale: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.9, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute z-50 left-1/2 -translate-x-1/2 bottom-full mb-4 w-80 bg-white border-2 border-[#ad8b3a] rounded-xl shadow-2xl overflow-hidden"
-                    >
-                      <div className="h-40 overflow-hidden relative">
-                        <Image
-                          src={facility.image}
-                          alt={facility.name}
-                          fill
-                          className="object-cover"
-                          sizes="320px"
-                        />
-                      </div>
-                      <div className="p-4">
-                        <h4 className="text-lg font-bold mb-2" style={{ color: '#ad8b3a' }}>
-                          {facility.name}
-                        </h4>
-                        <p className="text-sm text-gray-600 leading-relaxed">
-                          {facility.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <div className="text-5xl mb-4">{event.icon}</div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                  {event.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">{event.description}</p>
               </div>
             ))}
           </div>
@@ -499,7 +513,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
               Highlights from{" "}
-              <span style={{ color: '#ad8b3a' }}>Daman Club</span>
+              <span style={{ color: "#ad8b3a" }}>Daman Club</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Join us as we highlight memorable moments and stunning landscapes,
@@ -515,47 +529,69 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            Follow Us On <span style={{ color: '#ad8b3a' }}>Instagram</span>
+            Your search for True Luxury{" "}
+            <span style={{ color: "#ad8b3a" }}>ends here</span>
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Stay connected with our latest updates and community moments
+          <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+            Whether you&apos;re looking for a relaxing getaway, a romantic rendezvous, or a
+            luxurious event space, The Daman Club is the perfect place for you.
           </p>
-          <button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors shadow-lg">
-            Follow on Instagram
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-[#ad8b3a] hover:bg-[#8d7330] text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-xl">
+              BOOK NOW
+            </button>
+            <button className="border-2 border-[#ad8b3a] text-[#ad8b3a] hover:bg-[#ad8b3a]/10 px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+              MEMBER LOGIN
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Footer / Contact Section */}
-      <section id="contact" className="py-20 bg-white border-t-2 border-[#ad8b3a]/30">
+      <section
+        id="contact"
+        className="py-20 bg-white border-t-2 border-[#ad8b3a]/30"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Ready to <span style={{ color: '#ad8b3a' }}>Join Us?</span>
+              The <span style={{ color: "#ad8b3a" }}>Daman Club</span>
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Become a member today and enjoy exclusive benefits, access to
-              events, and a community that celebrates excellence.
+            <p className="text-lg text-gray-600 mb-4">
+              Opp Tourism Department, Bandodkar Sports Complex,
             </p>
-            <button className="bg-[#ad8b3a] hover:bg-[#8d7330] text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-xl">
-              Book Your Visit
-            </button>
+            <p className="text-lg text-gray-600 mb-8">
+              Near Daman Bus Stand, Daman - 396210.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <div className="text-center">
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#ad8b3a' }}>Phone</h3>
+              <h3
+                className="text-xl font-bold mb-4"
+                style={{ color: "#ad8b3a" }}
+              >
+                Phone
+              </h3>
               <p className="text-gray-700 font-medium">+91-9311303001</p>
               <p className="text-gray-500 text-sm mt-1">(Booking Issues)</p>
               <p className="text-gray-700 font-medium mt-2">011-20861731</p>
               <p className="text-gray-500 text-sm mt-1">(Other Queries)</p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#ad8b3a' }}>Email</h3>
+              <h3
+                className="text-xl font-bold mb-4"
+                style={{ color: "#ad8b3a" }}
+              >
+                Email
+              </h3>
               <p className="text-gray-700 font-medium">support@damanclub.in</p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#ad8b3a' }}>
+              <h3
+                className="text-xl font-bold mb-4"
+                style={{ color: "#ad8b3a" }}
+              >
                 Follow Us
               </h3>
               <div className="flex justify-center space-x-4">
@@ -588,7 +624,8 @@ export default function Home() {
           </div>
 
           <div className="border-t border-[#ad8b3a]/30 mt-16 pt-8 text-center text-gray-500">
-            <p>Copyright © 2025 - Daman Club. All rights reserved.</p>
+            <p>Copyright © The Daman Club</p>
+            <p className="mt-2 text-sm">Powered by Smart Technologies</p>
           </div>
         </div>
       </section>

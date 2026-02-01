@@ -845,7 +845,7 @@ export default function AmenitiesPage() {
           >
             <button
               onClick={() => {
-                router.push("/demo/membership");
+                router.push("/membership");
               }}
               className="px-8 py-4 bg-[#e2b714] hover:bg-[#c19910] text-white rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105"
             >
@@ -853,7 +853,7 @@ export default function AmenitiesPage() {
             </button>
             <button
               onClick={() => {
-                router.push("/demo/contact");
+                router.push("/contact");
               }}
               className="px-8 py-4 bg-transparent hover:bg-white/10 text-white border-2 border-white rounded-lg text-lg font-semibold transition-all duration-300"
             >

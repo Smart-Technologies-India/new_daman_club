@@ -336,14 +336,14 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => {
-                router.push("/demo/membership");
+                router.push("/membership");
               }}
               className="bg-[#e2b714] hover:bg-[#c19910] text-white px-10 py-4 rounded-md text-lg font-semibold transition-colors shadow-xl"
             >
               BECOME A MEMBER
             </button>
             <Link
-              href="/demo"
+              href="/"
               className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-10 py-4 rounded-md text-lg font-semibold transition-colors inline-block"
             >
               Back to Home

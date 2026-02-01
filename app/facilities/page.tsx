@@ -246,7 +246,7 @@ export default function FacilitiesPage() {
                 </button>
                 <button
                   onClick={() => {
-                    router.push("/demo/contact");
+                    router.push("/contact");
                   }}
                   className="border-2 border-[#e2b714] text-[#e2b714] hover:bg-[#e2b714] hover:text-white px-8 py-3 rounded-md font-semibold transition-colors"
                 >
@@ -380,7 +380,7 @@ export default function FacilitiesPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => {
-                  router.push("/demo/events");
+                  router.push("/events");
                 }}
                 className="border-2 border-white text-white hover:bg-white hover:text-[#e2b714]! px-10 py-4 rounded-md text-lg font-semibold transition-colors"
               >
@@ -388,7 +388,7 @@ export default function FacilitiesPage() {
               </button>
               <button
                 onClick={() => {
-                  router.push("/demo/facilities");
+                  router.push("/facilities");
                 }}
                 className="border-2 border-white text-white hover:bg-white hover:text-[#e2b714]! px-10 py-4 rounded-md text-lg font-semibold transition-colors"
               >

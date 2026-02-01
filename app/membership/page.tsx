@@ -344,7 +344,7 @@ export default function MembershipPage() {
               </button>
               <button
                 onClick={() => {
-                  router.push("/demo/contact");
+                  router.push("/contact");
                 }}
                 className="bg-transparent text-white py-4 px-8 rounded-lg font-bold tracking-widest border-2 border-white hover:bg-white hover:text-[#e2b714]! transition-all duration-300"
               >

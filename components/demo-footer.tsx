@@ -72,7 +72,7 @@ export default function DemoFooter() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/demo"
+                  href="/"
                   className="text-gray-400 hover:text-[#e2b714] transition-colors"
                 >
                   Home
@@ -80,7 +80,7 @@ export default function DemoFooter() {
               </li>
               <li>
                 <Link
-                  href="/demo/about"
+                  href="/about"
                   className="text-gray-400 hover:text-[#e2b714] transition-colors"
                 >
                   About Us
@@ -88,7 +88,7 @@ export default function DemoFooter() {
               </li>
               <li>
                 <Link
-                  href="/demo/facilities"
+                  href="/facilities"
                   className="text-gray-400 hover:text-[#e2b714] transition-colors"
                 >
                   Facilities
@@ -96,7 +96,7 @@ export default function DemoFooter() {
               </li>
               <li>
                 <Link
-                  href="/demo/membership"
+                  href="/membership"
                   className="text-gray-400 hover:text-[#e2b714] transition-colors"
                 >
                   Membership
@@ -104,7 +104,7 @@ export default function DemoFooter() {
               </li>
               <li>
                 <Link
-                  href="/demo/contact"
+                  href="/contact"
                   className="text-gray-400 hover:text-[#e2b714] transition-colors"
                 >
                   Contact Us

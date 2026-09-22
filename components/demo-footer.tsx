@@ -96,6 +96,14 @@ export default function DemoFooter() {
               </li>
               <li>
                 <Link
+                  href="/booking"
+                  className="text-gray-400 hover:text-[#e2b714] transition-colors"
+                >
+                  Book Your Stay / Event
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/membership"
                   className="text-gray-400 hover:text-[#e2b714] transition-colors"
                 >

@@ -11,7 +11,7 @@ const membershipPlans = [
   {
     id: 1,
     name: "BASIC MEMBERSHIP",
-    price: "₹50,000",
+    // price: "₹50,000",
     period: "per year",
     description:
       "Perfect for individuals seeking occasional access to our premium facilities and amenities.",
@@ -30,7 +30,7 @@ const membershipPlans = [
   {
     id: 2,
     name: "PREMIUM MEMBERSHIP",
-    price: "₹1,50,000",
+    // price: "₹1,50,000",
     period: "per year",
     description:
       "Ideal for families and regular visitors who want comprehensive access to all club facilities.",
@@ -51,7 +51,7 @@ const membershipPlans = [
   {
     id: 3,
     name: "ELITE MEMBERSHIP",
-    price: "₹3,50,000",
+    // price: "₹3,50,000",
     period: "per year",
     description:
       "Exclusive membership offering unlimited access and VIP treatment with premium privileges.",
@@ -73,7 +73,7 @@ const membershipPlans = [
   {
     id: 4,
     name: "CORPORATE MEMBERSHIP",
-    price: "₹5,00,000",
+    // price: "₹5,00,000",
     period: "per year (up to 50 employees)",
     description:
       "Designed for corporations to provide their employees with wellness and recreational benefits.",
@@ -230,12 +230,12 @@ export default function MembershipPage() {
                     <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">
                       {plan.name}
                     </h3>
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                       <span className="text-4xl font-bold text-[#e2b714]">
                         {plan.price}
                       </span>
                       <span className="text-gray-600 ml-2">{plan.period}</span>
-                    </div>
+                    </div> */}
                     <p className="text-gray-600 mb-6">{plan.description}</p>
 
                     <div className="space-y-3 mb-8">

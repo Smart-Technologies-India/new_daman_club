@@ -14,7 +14,7 @@ const facilities = [
     description:
       "Enjoy the Thrill with Adrenaline-pumping activities of your choice at our Sports Facility. Play like a Pro and enjoy your favourite sport with passion. Experience the joy of playfulness right here in Daman.",
     features: [
-      "Badminton Court",
+      "Swimming Pool",
       "Jogging Track",
       "Net Cricket",
       "Sports Arena",

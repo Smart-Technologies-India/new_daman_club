@@ -13,7 +13,7 @@ const luxuryRooms = [
       "Luxurious accommodations with modern amenities, perfect for tourists and business travelers seeking comfort and elegance",
     image:
       "/images/2_premium_hotel_rooms.JPG",
-    size: "World-Class",
+    // size: "World-Class",
     price: "Stay",
   },
   {
@@ -23,7 +23,7 @@ const luxuryRooms = [
       "Experience our stunning outdoor swimming pool with kids pool area, perfect for unwinding and family fun",
     image:
       "/images/3_swimming_pool.JPG",
-    size: "Outdoor & Kids",
+    // size: "Outdoor & Kids",
     price: "Pool",
   },
   {
@@ -33,7 +33,7 @@ const luxuryRooms = [
       "State-of-the-art gaming zone featuring Snooker, Air Hockey, Foosball, Billiards, Chess, and Carrom for endless entertainment",
     image:
       "/images/4_gaming_area.JPG",
-    size: "Multiple Games",
+    // size: "Multiple Games",
     price: "Games",
   },
   {
@@ -43,7 +43,7 @@ const luxuryRooms = [
       "Exquisite dining experience with gourmet cuisine, perfect for romantic dinners, family gatherings, and special celebrations",
     image:
       "/images/5_fine_dine_restaurant.JPG",
-    size: "Premium",
+    // size: "Premium",
     price: "Dining",
   },
 ];
@@ -51,7 +51,7 @@ const luxuryRooms = [
 const experiences = [
   {
     id: 1,
-    icon: "�",
+    icon: "🎉",
     title: "Bespoke Celebrations",
     description:
       "Tailored experiences that transform milestones into unforgettable memories.",
@@ -232,12 +232,12 @@ export default function LeelaDemo() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <motion.div
               whileHover={{ y: -10 }}
               className="bg-white p-8 rounded-lg shadow-lg text-center"
             >
-              <div className="text-5xl mb-4">�</div>
+              <div className="text-5xl mb-4">🎭</div>
               <h3 className="text-2xl font-bold mb-3 text-gray-900">
                 The Art of Gathering
               </h3>
@@ -272,7 +272,7 @@ export default function LeelaDemo() {
                 members a sense of ease and privilege at every turn.
               </p>
             </motion.div>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -318,11 +318,11 @@ export default function LeelaDemo() {
                     {room.name}
                   </h3>
                   <p className="text-gray-600 mb-4">{room.description}</p>
-                  <div className="flex justify-between items-center">
+                  {/* <div className="flex justify-between items-center">
                     <span className="text-[#e2b714] font-semibold">
                       📏 {room.size}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             ))}

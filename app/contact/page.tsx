@@ -15,14 +15,49 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSuccessMessage("Message sent successfully! We'll get back to you soon.");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setErrorMessage("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setErrorMessage("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     setFormData({
       ...formData,
@@ -52,10 +87,15 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
           className="relative z-10 text-center text-white px-4"
         >
-          <p className="text-sm tracking-widest text-[#e2b714] mb-4">WE&apos;RE HERE TO HELP</p>
-          <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6">GET IN TOUCH</h1>
+          <p className="text-sm tracking-widest text-[#e2b714] mb-4">
+            WE&apos;RE HERE TO HELP
+          </p>
+          <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6">
+            GET IN TOUCH
+          </h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-            We&apos;d love to hear from you. Whether you have questions about memberships, facilities, or events, our team is here to help
+            We&apos;d love to hear from you. Whether you have questions about
+            memberships, facilities, or events, our team is here to help
           </p>
         </motion.div>
       </section>
@@ -72,7 +112,12 @@ export default function ContactPage() {
               className="bg-white border-2 border-[#e2b714]/30 p-8 rounded-lg text-center hover:border-[#e2b714] hover:shadow-xl transition-all"
             >
               <div className="w-16 h-16 bg-[#e2b714] rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -82,10 +127,8 @@ export default function ContactPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Call Us</h3>
-              <p className="text-gray-700 font-semibold mb-1">+91-9311303001</p>
-              <p className="text-gray-500 text-sm mb-3">(Booking Issues)</p>
-              <p className="text-gray-700 font-semibold mb-1">011-20861731</p>
-              <p className="text-gray-500 text-sm">(Other Queries)</p>
+              <p className="text-gray-700 font-semibold mb-2">+91-6359900485</p>
+              <p className="text-gray-500 text-sm">Available Daily</p>
             </motion.div>
 
             <motion.div
@@ -96,7 +139,12 @@ export default function ContactPage() {
               className="bg-white border-2 border-[#e2b714]/30 p-8 rounded-lg text-center hover:border-[#e2b714] hover:shadow-xl transition-all"
             >
               <div className="w-16 h-16 bg-[#e2b714] rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -106,8 +154,12 @@ export default function ContactPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Email Us</h3>
-              <p className="text-gray-700 font-semibold mb-2">support@damanclub.in</p>
-              <p className="text-gray-500 text-sm">We&apos;ll respond within 24 hours</p>
+              <p className="text-gray-700 font-semibold mb-2">
+                thedamanclub@gmail.com
+              </p>
+              <p className="text-gray-500 text-sm">
+                We&apos;ll respond within 24 hours
+              </p>
             </motion.div>
 
             <motion.div
@@ -118,7 +170,12 @@ export default function ContactPage() {
               className="bg-white border-2 border-[#e2b714]/30 p-8 rounded-lg text-center hover:border-[#e2b714] hover:shadow-xl transition-all"
             >
               <div className="w-16 h-16 bg-[#e2b714] rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -134,9 +191,11 @@ export default function ContactPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Visit Us</h3>
-              <p className="text-gray-700 font-semibold mb-2">Daman Golf Course</p>
-              <p className="text-gray-500 text-sm">Daman, India</p>
-              <p className="text-gray-500 text-sm mt-2">Open Daily: 6:00 AM - 8:00 PM</p>
+              <p className="text-gray-700 font-semibold mb-2">The Daman Club</p>
+              <p className="text-gray-500 text-sm">
+                Opp Tourism Department, Bandodkar Sports Complex, Near Daman Bus
+                Stand, Daman - 396210
+              </p>
             </motion.div>
           </div>
         </div>
@@ -157,11 +216,26 @@ export default function ContactPage() {
                 <h2 className="font-serif text-3xl font-bold mb-2 text-gray-900">
                   Send Us A Message
                 </h2>
-                <p className="text-[#e2b714] text-sm tracking-widest mb-6">WE&apos;LL GET BACK TO YOU SOON</p>
-                
+                <p className="text-[#e2b714] text-sm tracking-widest mb-6">
+                  WE&apos;LL GET BACK TO YOU SOON
+                </p>
+
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {successMessage && (
+                    <div className="p-4 bg-green-100 border-2 border-green-500 text-green-700 rounded-lg">
+                      {successMessage}
+                    </div>
+                  )}
+                  {errorMessage && (
+                    <div className="p-4 bg-red-100 border-2 border-red-500 text-red-700 rounded-lg">
+                      {errorMessage}
+                    </div>
+                  )}
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -171,14 +245,17 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors text-black placeholder:text-gray-500 bg-white"
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -188,13 +265,16 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors text-black placeholder:text-gray-500 bg-white"
                         placeholder="john@example.com"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Phone Number
                       </label>
                       <input
@@ -203,14 +283,19 @@ export default function ContactPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors"
+                        maxLength={10}
+                        pattern="[0-9]{10}"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors text-black placeholder:text-gray-500 bg-white"
                         placeholder="+91 1234567890"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Subject *
                     </label>
                     <select
@@ -219,7 +304,7 @@ export default function ContactPage() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors text-black bg-white"
                     >
                       <option value="">Select a subject</option>
                       <option value="membership">Membership Inquiry</option>
@@ -232,7 +317,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Your Message *
                     </label>
                     <textarea
@@ -242,16 +330,17 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors resize-none"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none transition-colors resize-none text-black placeholder:text-gray-500 bg-white"
                       placeholder="Tell us how we can help you..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-[#e2b714] hover:bg-[#c19910] text-white font-bold py-4 rounded-lg transition-all shadow-lg hover:shadow-xl tracking-widest"
+                    disabled={loading}
+                    className="w-full bg-[#e2b714] hover:bg-[#c19910] disabled:bg-gray-400 text-white font-bold py-4 rounded-lg transition-all shadow-lg hover:shadow-xl tracking-widest"
                   >
-                    SEND MESSAGE
+                    {loading ? "SENDING..." : "SEND MESSAGE"}
                   </button>
                 </form>
               </div>
@@ -268,7 +357,7 @@ export default function ContactPage() {
               {/* Map */}
               <div className="bg-white border-2 border-[#e2b714]/30 rounded-lg overflow-hidden shadow-lg h-[400px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.54696990263!2d72.73989657910156!3d20.414247900000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0ce87583f88ad%3A0x6c7c6c6c6c6c6c6c!2sDaman%2C%20Dadra%20and%20Nagar%20Haveli%20and%20Daman%20and%20Diu!5e0!3m2!1sen!2sin!4v1734096000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d802.1234520376997!2d72.83655032432465!3d20.416458938562418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0d1f64b4fcf25%3A0x3db6d2b00c2113ef!2sThe%20Daman%20Club!5e1!3m2!1sen!2sin!4v1790145479052!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -281,31 +370,47 @@ export default function ContactPage() {
 
               {/* Business Hours */}
               <div className="bg-white border-2 border-[#e2b714]/30 rounded-lg p-8 shadow-lg">
-                <h3 className="font-serif text-2xl font-bold mb-2 text-gray-900">Business Hours</h3>
-                <p className="text-[#e2b714] text-sm tracking-widest mb-6">VISIT US ANYTIME</p>
-                
+                <h3 className="font-serif text-2xl font-bold mb-2 text-gray-900">
+                  Business Hours
+                </h3>
+                <p className="text-[#e2b714] text-sm tracking-widest mb-6">
+                  VISIT US ANYTIME
+                </p>
+
                 <div className="space-y-3">
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                    <span className="text-gray-700 font-medium">Monday - Friday</span>
-                    <span className="text-gray-900 font-semibold">6:00 AM - 8:00 PM</span>
+                    <span className="text-gray-700 font-medium">
+                      Monday - Friday
+                    </span>
+                    <span className="text-gray-900 font-semibold">
+                      10:00 AM - 8:00 PM
+                    </span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Saturday</span>
-                    <span className="text-gray-900 font-semibold">6:00 AM - 9:00 PM</span>
+                    <span className="text-gray-900 font-semibold">
+                      10:00 AM - 9:00 PM
+                    </span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-100">
                     <span className="text-gray-700 font-medium">Sunday</span>
-                    <span className="text-gray-900 font-semibold">6:00 AM - 9:00 PM</span>
+                    <span className="text-gray-900 font-semibold">
+                      10:00 AM - 9:00 PM
+                    </span>
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="text-gray-700 font-medium">Holidays</span>
-                    <span className="text-gray-900 font-semibold">7:00 AM - 7:00 PM</span>
+                    <span className="text-gray-900 font-semibold">
+                      10:00 AM - 7:00 PM
+                    </span>
                   </div>
                 </div>
-                
+
                 <div className="mt-6 p-4 bg-[#e2b714]/10 rounded-lg">
                   <p className="text-sm text-gray-700">
-                    <span className="font-semibold text-[#e2b714]">Note:</span> Please call ahead for holiday hours and special event bookings.
+                    <span className="font-semibold text-[#e2b714]">Note:</span>{" "}
+                    Please call ahead for holiday hours and special event
+                    bookings.
                   </p>
                 </div>
               </div>
@@ -324,11 +429,15 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <p className="text-sm tracking-widest text-[#e2b714] mb-4">COMMON QUESTIONS</p>
+            <p className="text-sm tracking-widest text-[#e2b714] mb-4">
+              COMMON QUESTIONS
+            </p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600">Quick answers to common questions</p>
+            <p className="text-lg text-gray-600">
+              Quick answers to common questions
+            </p>
           </motion.div>
 
           <div className="space-y-4">
@@ -336,7 +445,7 @@ export default function ContactPage() {
               {
                 question: "How do I book facilities or rooms?",
                 answer:
-                  "You can book online through our website, call us directly at +91-9311303001, or visit our clubhouse. We recommend booking at least 2-3 days in advance for weekend slots.",
+                  "You can book online through our website, call us directly at +91-6359900485, or visit our clubhouse. We recommend booking at least 2-3 days in advance for weekend slots.",
               },
               {
                 question: "What are your membership options?",
@@ -362,7 +471,9 @@ export default function ContactPage() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="border-2 border-gray-200 rounded-lg p-6 hover:border-[#e2b714]/50 transition-all"
               >
-                <h3 className="text-lg font-bold mb-2 text-gray-900">{faq.question}</h3>
+                <h3 className="text-lg font-bold mb-2 text-gray-900">
+                  {faq.question}
+                </h3>
                 <p className="text-gray-600">{faq.answer}</p>
               </motion.div>
             ))}

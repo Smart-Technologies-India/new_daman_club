@@ -59,6 +59,8 @@ const initialFormData: BookingFormData = {
 export default function BookingPage() {
   const [formData, setFormData] = useState<BookingFormData>(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const showStayDetails =
     formData.inquiryType === "stay" || formData.inquiryType === "package";
@@ -92,11 +94,34 @@ export default function BookingPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
+    setErrorMessage("");
 
-    setIsSubmitted(true);
-    setFormData(initialFormData);
+    try {
+      const response = await fetch("/api/send-booking-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData(initialFormData);
+        // Clear success message after 5 seconds
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        setErrorMessage("Failed to submit inquiry. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setErrorMessage("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -148,6 +173,11 @@ export default function BookingPage() {
                 automatically, and we usually respond within 24 hours.
               </div>
             )}
+            {errorMessage && (
+              <div className="mb-8 rounded-lg border border-red-200 bg-red-50 p-4 text-red-900">
+                {errorMessage}
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-8">
               <div>
@@ -156,7 +186,7 @@ export default function BookingPage() {
                 </h2>
                 <p className="text-sm text-gray-500 mb-3">Inquiry Type *</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <label className="border border-gray-200 rounded-lg p-4 hover:border-[#e2b714] transition-colors cursor-pointer">
+                  <label className="border border-gray-200 rounded-lg p-4 hover:border-[#e2b714] transition-colors cursor-pointer flex gap-2 items-center">
                     <input
                       type="radio"
                       name="inquiryType"
@@ -168,7 +198,7 @@ export default function BookingPage() {
                     />
                     Stay / Accommodation Only
                   </label>
-                  <label className="border border-gray-200 rounded-lg p-4 hover:border-[#e2b714] transition-colors cursor-pointer">
+                  <label className="border border-gray-200 rounded-lg p-4 hover:border-[#e2b714] transition-colors cursor-pointer flex gap-2 items-center">
                     <input
                       type="radio"
                       name="inquiryType"
@@ -179,7 +209,7 @@ export default function BookingPage() {
                     />
                     Event Only (Wedding, Corporate, Party, etc.)
                   </label>
-                  <label className="border border-gray-200 rounded-lg p-4 hover:border-[#e2b714] transition-colors cursor-pointer">
+                  <label className="border border-gray-200 rounded-lg p-4 hover:border-[#e2b714] transition-colors cursor-pointer flex gap-2 items-center">
                     <input
                       type="radio"
                       name="inquiryType"
@@ -209,7 +239,7 @@ export default function BookingPage() {
                       value={formData.fullName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                     />
                   </div>
                   <div>
@@ -223,7 +253,7 @@ export default function BookingPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                     />
                   </div>
                   <div>
@@ -239,7 +269,9 @@ export default function BookingPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                      maxLength={10}
+                      pattern="[0-9]{10}"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white placeholder:text-gray-500"
                     />
                   </div>
                   <div>
@@ -251,7 +283,7 @@ export default function BookingPage() {
                       name="contactMethod"
                       value={formData.contactMethod}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                     >
                       <option value="email">Email</option>
                       <option value="phone">Phone</option>
@@ -277,7 +309,7 @@ export default function BookingPage() {
                       value={formData.startDate}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                     />
                   </div>
                   <div>
@@ -291,7 +323,7 @@ export default function BookingPage() {
                       value={formData.endDate}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                     />
                   </div>
                   <div>
@@ -303,7 +335,7 @@ export default function BookingPage() {
                       name="dateFlexibility"
                       value={formData.dateFlexibility}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                     >
                       <option value="fixed">Fixed Dates</option>
                       <option value="plusminus3">Flexible (+/- 2-3 days)</option>
@@ -331,7 +363,7 @@ export default function BookingPage() {
                         value={formData.adults}
                         onChange={(e) => handleNumberChange("adults", e.target.value)}
                         required={showStayDetails}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                       />
                     </div>
                     <div>
@@ -345,7 +377,7 @@ export default function BookingPage() {
                         min={0}
                         value={formData.children}
                         onChange={(e) => handleNumberChange("children", e.target.value)}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                       />
                     </div>
                     <div>
@@ -357,7 +389,7 @@ export default function BookingPage() {
                         name="rooms"
                         value={formData.rooms}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                       >
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -384,7 +416,7 @@ export default function BookingPage() {
                         name="eventType"
                         value={formData.eventType}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                       >
                         <option value="">Select event type</option>
                         <option value="wedding">Wedding / Reception</option>
@@ -407,7 +439,7 @@ export default function BookingPage() {
                         value={formData.estimatedGuests}
                         onChange={handleInputChange}
                         required={showEventDetails}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                       />
                     </div>
                   </div>
@@ -499,7 +531,7 @@ export default function BookingPage() {
                   value={formData.specialRequests}
                   onChange={handleInputChange}
                   placeholder="Dietary restrictions, accessibility needs, itinerary requirements, etc."
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none resize-none"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none resize-none text-black bg-white placeholder:text-gray-500"
                 />
               </div>
 
@@ -523,9 +555,10 @@ export default function BookingPage() {
 
                 <button
                   type="submit"
-                  className="w-full md:w-auto bg-[#e2b714] hover:bg-[#c19910] text-white font-bold py-3 px-10 rounded-lg transition-all shadow-lg hover:shadow-xl tracking-wider"
+                  disabled={loading}
+                  className="w-full md:w-auto bg-[#e2b714] hover:bg-[#c19910] disabled:bg-gray-400 text-white font-bold py-3 px-10 rounded-lg transition-all shadow-lg hover:shadow-xl tracking-wider"
                 >
-                  Submit Inquiry
+                  {loading ? "Submitting..." : "Submit Inquiry"}
                 </button>
               </div>
             </form>

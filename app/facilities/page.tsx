@@ -37,11 +37,12 @@ const sportsFacilities = [
   },
   {
     id: 3,
-    title: "Squash Court",
-    icon: "🎾",
+    title: "Jogging Track",
+    icon: "🏃‍♂️",
     description:
-      "Immerse yourself in the intensity of squash at The Daman Club's cutting-edge Squash Court. Whether you're a seasoned player seeking a challenge or a beginner eager to learn, our state-of-the-art court is your arena for exhilarating matches. Engage in fast-paced rallies, refine your technique, and elevate your squash game in an environment designed for both competition and enjoyment.",
-    image: "/images/facilites/4_squash_court.jpg",
+      "Stay active and enjoy the scenic surroundings on The Daman Club's Jogging Track. Our well-maintained track offers a safe and invigorating environment for joggers of all levels. Whether you're looking for a morning run, an evening jog, or a leisurely stroll, our track provides the perfect setting to enhance your fitness and well-being.",
+    image:
+      "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200&q=80",
   },
   {
     id: 4,
@@ -112,7 +113,7 @@ const galleryImages = [
   },
   {
     url: "/images/3_body_mind.JPG",
-    title: "Poolside Ambiance",
+    title: "Poolside Ambience",
     description:
       "Beautiful poolside setting perfect for unwinding and enjoying leisure time",
   },

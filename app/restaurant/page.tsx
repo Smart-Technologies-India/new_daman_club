@@ -45,17 +45,10 @@ const diningExperiences = [
       "Multi-Cuisine",
       "Air Conditioned",
       "Live Music",
-      "Premium Ambiance",
+      "Premium Ambience",
     ],
   },
-  {
-    id: 2,
-    title: "Poolside Cafe",
-    icon: "☕",
-    description:
-      "Relax by the pool with light refreshments, snacks, and beverages. Enjoy the perfect blend of leisure and taste in a serene outdoor setting.",
-    features: ["Outdoor Seating", "Quick Bites", "Beverages", "Scenic View"],
-  },
+
   {
     id: 3,
     title: "Banquet Dining",
@@ -67,19 +60,6 @@ const diningExperiences = [
       "Large Capacity",
       "Event Catering",
       "Professional Service",
-    ],
-  },
-  {
-    id: 4,
-    title: "Private Dining",
-    icon: "👥",
-    description:
-      "Intimate dining experiences in exclusive private rooms. Perfect for business meetings, family gatherings, or special occasions requiring privacy and personalized attention.",
-    features: [
-      "Private Rooms",
-      "Personalized Service",
-      "Custom Setup",
-      "Exclusive Ambiance",
     ],
   },
 ];
@@ -527,7 +507,7 @@ export default function RestaurantPage() {
                 </svg>
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">
-                Premium Ambiance
+                Premium Ambience
               </h4>
               <p className="text-sm text-gray-600">Elegant Atmosphere</p>
             </motion.div>

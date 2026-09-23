@@ -13,12 +13,7 @@ const facilities = [
     icon: "⚽",
     description:
       "Enjoy the Thrill with Adrenaline-pumping activities of your choice at our Sports Facility. Play like a Pro and enjoy your favourite sport with passion. Experience the joy of playfulness right here in Daman.",
-    features: [
-      "Swimming Pool",
-      "Jogging Track",
-      "Net Cricket",
-      "Sports Arena",
-    ],
+    features: ["Swimming Pool", "Jogging Track", "Net Cricket", "Sports Arena"],
   },
   {
     id: 2,
@@ -228,10 +223,10 @@ export default function AboutPage() {
                       facility.id === 1
                         ? "/images/2_sports_and_ fitness.JPG"
                         : facility.id === 2
-                        ? "/images/3_body_mind.JPG"
-                        : facility.id === 3
-                        ? "/images/4_entertainment.JPG"
-                        : "/images/5_lights_camera.JPG"
+                          ? "/images/3_body_mind.JPG"
+                          : facility.id === 3
+                            ? "/images/4_entertainment.JPG"
+                            : "/images/5_lights_camera.JPG"
                     }
                     alt={facility.title}
                     fill
@@ -316,9 +311,7 @@ export default function AboutPage() {
               Perfect outdoor site for Weddings, Gatherings, Exhibitions, and
               Summits
             </p>
-            <p className="text-xl font-semibold">
-              Capacity: Over 1000 People
-            </p>
+            <p className="text-xl font-semibold">Capacity: Over 1000 People</p>
           </motion.div>
         </div>
       </section>
@@ -334,14 +327,6 @@ export default function AboutPage() {
             services
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => {
-                router.push("/membership");
-              }}
-              className="bg-[#e2b714] hover:bg-[#c19910] text-white px-10 py-4 rounded-md text-lg font-semibold transition-colors shadow-xl"
-            >
-              BECOME A MEMBER
-            </button>
             <Link
               href="/"
               className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-10 py-4 rounded-md text-lg font-semibold transition-colors inline-block"

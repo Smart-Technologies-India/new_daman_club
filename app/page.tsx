@@ -11,8 +11,7 @@ const luxuryRooms = [
     name: "Premium Hotel Rooms",
     description:
       "Luxurious accommodations with modern amenities, perfect for tourists and business travelers seeking comfort and elegance",
-    image:
-      "/images/2_premium_hotel_rooms.JPG",
+    image: "/images/2_premium_hotel_rooms.JPG",
     // size: "World-Class",
     price: "Stay",
   },
@@ -21,8 +20,7 @@ const luxuryRooms = [
     name: "Swimming Pool",
     description:
       "Experience our stunning outdoor swimming pool with kids pool area, perfect for unwinding and family fun",
-    image:
-      "/images/3_swimming_pool.JPG",
+    image: "/images/3_swimming_pool.JPG",
     // size: "Outdoor & Kids",
     price: "Pool",
   },
@@ -31,8 +29,7 @@ const luxuryRooms = [
     name: "Gaming Area",
     description:
       "State-of-the-art gaming zone featuring Snooker, Air Hockey, Foosball, Billiards, Chess, and Carrom for endless entertainment",
-    image:
-      "/images/4_gaming_area.JPG",
+    image: "/images/4_gaming_area.JPG",
     // size: "Multiple Games",
     price: "Games",
   },
@@ -41,8 +38,7 @@ const luxuryRooms = [
     name: "Fine Dine Restaurant",
     description:
       "Exquisite dining experience with gourmet cuisine, perfect for romantic dinners, family gatherings, and special celebrations",
-    image:
-      "/images/5_fine_dine_restaurant.JPG",
+    image: "/images/5_fine_dine_restaurant.JPG",
     // size: "Premium",
     price: "Dining",
   },
@@ -70,20 +66,7 @@ const experiences = [
     description:
       "Spaces and programs designed to refresh, energize, and rejuvenate mind and body.",
   },
-  {
-    id: 4,
-    icon: "💼",
-    title: "Exclusive Membership Privileges",
-    description:
-      "Access to thoughtfully crafted benefits that elevate every visit.",
-  },
-  {
-    id: 5,
-    icon: "🏊",
-    title: "Cultural & Artistic Journeys",
-    description:
-      "Engaging performances, exhibits, and curated events that inspire and captivate.",
-  },
+
   {
     id: 6,
     icon: "✨",
@@ -99,32 +82,28 @@ const destinations = [
     city: "Signature Weddings",
     tagline:
       "Bespoke celebrations crafted for unforgettable elegance and grandeur.",
-    image:
-      "/images/6_signature_wedding.jpg",
+    image: "/images/6_signature_wedding.jpg",
   },
   {
     id: 2,
     city: "Corporate Retreats & Conferences",
     tagline:
       "Exclusive spaces for focused meetings and high-level engagements.",
-    image:
-      "/images/7_corporate_retreats.jpg",
+    image: "/images/7_corporate_retreats.jpg",
   },
   {
     id: 3,
     city: "Private Celebrations & Social Gatherings",
     tagline:
       "Memorable moments curated for intimate and grand occasions alike.",
-    image:
-      "/images/8_private_celebrations.jpg",
+    image: "/images/8_private_celebrations.jpg",
   },
   {
     id: 4,
     city: "Cultural & Artistic Events",
     tagline:
       "Captivating performances and curated showcases for discerning audiences.",
-    image:
-      "/images/9_cultural_artistic_events.jpg",
+    image: "/images/9_cultural_artistic_events.jpg",
   },
 ];
 
@@ -140,7 +119,6 @@ export default function LeelaDemo() {
         id="home"
         className="relative h-screen flex items-center justify-center"
       >
-        
         <div className="absolute inset-0">
           <video
             src="/video/background.mp4"
@@ -176,16 +154,6 @@ export default function LeelaDemo() {
             <p className="text-2xl md:text-3xl mb-8 font-light">
               Premium Hotel | Weddings | Corporate Events | Tourist Paradise
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  router.push("/membership");
-                }}
-                className="bg-[#e2b714] hover:bg-[#c19910] text-white px-10 py-4 rounded-md text-lg font-semibold transition-all shadow-xl hover:shadow-2xl"
-              >
-                BECOME A MEMBER
-              </button>
-            </div>
           </motion.div>
         </div>
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -347,7 +315,7 @@ export default function LeelaDemo() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {experiences.map((exp) => (
               <motion.div
                 key={exp.id}
@@ -386,23 +354,23 @@ export default function LeelaDemo() {
               {
                 id: 1,
                 name: "Distinctive Cuisine",
-                cuisine: "Thoughtfully crafted dishes that celebrate balance, depth, and character.",
-                image:
-                  "/images/10_distinctive_cuisine.JPG",
+                cuisine:
+                  "Thoughtfully crafted dishes that celebrate balance, depth, and character.",
+                image: "/images/10_distinctive_cuisine.JPG",
               },
               {
                 id: 2,
                 name: "Refined Setting",
-                cuisine: "An elegant space designed for relaxed evenings, meaningful conversations, and memorable meals.",
-                image:
-                  "/images/11_refined_setting.JPG",
+                cuisine:
+                  "An elegant space designed for relaxed evenings, meaningful conversations, and memorable meals.",
+                image: "/images/11_refined_setting.JPG",
               },
               {
                 id: 3,
                 name: "Dining, Elevated",
-                cuisine: "Impeccable service and attention to detail that turn every visit into an experience.",
-                image:
-                  "/images/12_dining_elevated.JPG",
+                cuisine:
+                  "Impeccable service and attention to detail that turn every visit into an experience.",
+                image: "/images/12_dining_elevated.JPG",
               },
             ].map((restaurant) => (
               <div
@@ -504,7 +472,7 @@ export default function LeelaDemo() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => {
-                  router.push("/amenities");
+                  router.push("/booking");
                 }}
                 className="border-2 border-white text-white hover:bg-white hover:text-yellow-500! px-10 py-4 rounded-md text-lg font-semibold"
               >
@@ -512,7 +480,7 @@ export default function LeelaDemo() {
               </button>
               <button
                 onClick={() => {
-                  router.push("/events");
+                  router.push("/booking");
                 }}
                 className="border-2 border-white text-white hover:bg-white hover:text-yellow-500! px-10 py-4 rounded-md text-lg font-semibold"
               >

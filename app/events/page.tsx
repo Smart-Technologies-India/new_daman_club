@@ -12,8 +12,7 @@ const eventTypes = [
     tagline: "Celebrate Your Special Day",
     description:
       "Make your dream wedding a reality at The Daman Club. Our stunning venues, exceptional catering, and professional event management ensure your special day is perfect in every way.",
-    image:
-      "/images/weddings_events.jpeg",
+    image: "/images/weddings_events.jpeg",
     features: [
       "Indoor & Outdoor Venues",
       "Custom Decoration",
@@ -76,21 +75,10 @@ const venueSpaces = [
     type: "Outdoor",
     description:
       "Expansive outdoor venue perfect for large gatherings, sports events, and grand celebrations.",
-    image:
-      "/images/amenities/2_main_ground.JPG",
+    image: "/images/amenities/2_main_ground.JPG",
     idealFor: ["Weddings", "Sports", "Large Parties", "Outdoor Events"],
   },
-  {
-    id: 2,
-    name: "Conference Hall",
-    capacity: "200 Guests",
-    type: "Indoor",
-    description:
-      "Modern conference facility equipped with latest A/V technology and flexible seating arrangements.",
-    image:
-      "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800&q=80",
-    idealFor: ["Corporate Meetings", "Seminars", "Training", "Presentations"],
-  },
+
   {
     id: 3,
     name: "Front Lawn",
@@ -98,8 +86,7 @@ const venueSpaces = [
     type: "Outdoor",
     description:
       "Picturesque outdoor setting with lush greenery, perfect for intimate ceremonies and gatherings.",
-    image:
-      "/images/amenities/3_front_lawn.JPG",
+    image: "/images/amenities/3_front_lawn.JPG",
     idealFor: [
       "Garden Weddings",
       "Receptions",
@@ -110,10 +97,10 @@ const venueSpaces = [
   {
     id: 4,
     name: "Main Lobby",
-    capacity: "500 Guests",
+    capacity: "100 Guests",
     type: "Indoor",
     description:
-      "Grand entrance hall with elegant ambiance, suitable for cocktail parties and social gatherings.",
+      "Grand entrance hall with elegant ambience, suitable for cocktail parties and social gatherings.",
     image:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
     idealFor: [
@@ -328,7 +315,7 @@ export default function EventsPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {venueSpaces.map((venue, index) => (
               <motion.div
                 key={venue.id}

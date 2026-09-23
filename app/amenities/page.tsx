@@ -143,7 +143,7 @@ export default function AmenitiesPage() {
                         d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
                       />
                     </svg>
-                    Luxury Ambiance
+                    Luxury Ambience
                   </div>
                 </div>
               </div>
@@ -549,14 +549,7 @@ export default function AmenitiesPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   For Members
                 </h3>
-                <div className="mb-6">
-                  <div className="text-3xl font-bold text-[#e2b714] mb-2">
-                    Dynamic Price
-                  </div>
-                  <p className="text-sm text-gray-500">
-                    Contact for current rates
-                  </p>
-                </div>
+
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Indulge in a tranquil escape with our Members&apos; Stay
                   Package. Enjoy a cozy stay for 2 adults and 1 kid (up to 12
@@ -640,14 +633,7 @@ export default function AmenitiesPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   For Events
                 </h3>
-                <div className="mb-6">
-                  <div className="text-3xl font-bold text-[#e2b714] mb-2">
-                    Dynamic Price
-                  </div>
-                  <p className="text-sm text-gray-500">
-                    Contact for current rates
-                  </p>
-                </div>
+
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Elevate your events with our Event Stay Packages. Enjoy a
                   delightful stay for 2 adults and 1 kid (up to 12 years), with
@@ -730,14 +716,7 @@ export default function AmenitiesPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   For Non-Members
                 </h3>
-                <div className="mb-6">
-                  <div className="text-3xl font-bold text-[#e2b714] mb-2">
-                    Dynamic Price
-                  </div>
-                  <p className="text-sm text-gray-500">
-                    Contact for current rates
-                  </p>
-                </div>
+
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Make yourself at home with our Non-Members&apos; Stay Package.
                   Enjoy a comfortable stay for 2 adults and 1 kid (up to 12
@@ -845,11 +824,11 @@ export default function AmenitiesPage() {
           >
             <button
               onClick={() => {
-                router.push("/membership");
+                router.push("/booking");
               }}
               className="px-8 py-4 bg-[#e2b714] hover:bg-[#c19910] text-white rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105"
             >
-              Book Event
+              Book Stay / Event
             </button>
             <button
               onClick={() => {

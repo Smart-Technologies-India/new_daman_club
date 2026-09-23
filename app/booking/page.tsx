@@ -68,7 +68,9 @@ export default function BookingPage() {
     formData.inquiryType === "event" || formData.inquiryType === "package";
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
 
@@ -153,7 +155,8 @@ export default function BookingPage() {
             Book Your Stay / Event
           </h1>
           <p className="text-base md:text-xl max-w-3xl mx-auto text-gray-100">
-            Share your requirements and our team will get back with curated options.
+            Share your requirements and our team will get back with curated
+            options.
           </p>
         </motion.div>
       </section>
@@ -169,8 +172,8 @@ export default function BookingPage() {
           >
             {isSubmitted && (
               <div className="mb-8 rounded-lg border border-green-200 bg-green-50 p-4 text-green-900">
-                Thank you. Your inquiry has been received. A confirmation email is sent
-                automatically, and we usually respond within 24 hours.
+                Thank you. Your inquiry has been received. A confirmation email
+                is sent automatically, and we usually respond within 24 hours.
               </div>
             )}
             {errorMessage && (
@@ -229,7 +232,10 @@ export default function BookingPage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="fullName" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="fullName"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -243,7 +249,10 @@ export default function BookingPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -257,7 +266,10 @@ export default function BookingPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Phone / WhatsApp Number *
                     </label>
                     <input
@@ -275,7 +287,10 @@ export default function BookingPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="contactMethod" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="contactMethod"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Preferred Contact Method
                     </label>
                     <select
@@ -299,7 +314,10 @@ export default function BookingPage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   <div>
-                    <label htmlFor="startDate" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="startDate"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Check-in / Event Start Date *
                     </label>
                     <input
@@ -313,7 +331,10 @@ export default function BookingPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="endDate" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="endDate"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Check-out / Event End Date *
                     </label>
                     <input
@@ -327,7 +348,10 @@ export default function BookingPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="dateFlexibility" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label
+                      htmlFor="dateFlexibility"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
                       Are your dates flexible?
                     </label>
                     <select
@@ -338,7 +362,9 @@ export default function BookingPage() {
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                     >
                       <option value="fixed">Fixed Dates</option>
-                      <option value="plusminus3">Flexible (+/- 2-3 days)</option>
+                      <option value="plusminus3">
+                        Flexible (+/- 2-3 days)
+                      </option>
                       <option value="plusminus7">Flexible (+/- 1 week)</option>
                     </select>
                   </div>
@@ -352,7 +378,10 @@ export default function BookingPage() {
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     <div>
-                      <label htmlFor="adults" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="adults"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Number of Adults (12+ yrs) *
                       </label>
                       <input
@@ -361,13 +390,18 @@ export default function BookingPage() {
                         type="number"
                         min={1}
                         value={formData.adults}
-                        onChange={(e) => handleNumberChange("adults", e.target.value)}
+                        onChange={(e) =>
+                          handleNumberChange("adults", e.target.value)
+                        }
                         required={showStayDetails}
                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                       />
                     </div>
                     <div>
-                      <label htmlFor="children" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="children"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Number of Children (2-11 yrs)
                       </label>
                       <input
@@ -376,12 +410,17 @@ export default function BookingPage() {
                         type="number"
                         min={0}
                         value={formData.children}
-                        onChange={(e) => handleNumberChange("children", e.target.value)}
+                        onChange={(e) =>
+                          handleNumberChange("children", e.target.value)
+                        }
                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#e2b714] focus:outline-none text-black bg-white"
                       />
                     </div>
                     <div>
-                      <label htmlFor="rooms" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="rooms"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Number of Rooms Needed
                       </label>
                       <select
@@ -408,7 +447,10 @@ export default function BookingPage() {
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div>
-                      <label htmlFor="eventType" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="eventType"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Event Type
                       </label>
                       <select
@@ -420,7 +462,9 @@ export default function BookingPage() {
                       >
                         <option value="">Select event type</option>
                         <option value="wedding">Wedding / Reception</option>
-                        <option value="corporate">Corporate / Conference</option>
+                        <option value="corporate">
+                          Corporate / Conference
+                        </option>
                         <option value="birthday">Birthday / Anniversary</option>
                         <option value="retreat">Retreat</option>
                         <option value="social">Social Gathering / Party</option>
@@ -428,7 +472,10 @@ export default function BookingPage() {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="estimatedGuests" className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label
+                        htmlFor="estimatedGuests"
+                        className="block text-sm font-semibold text-gray-700 mb-2"
+                      >
                         Estimated Number of Guests *
                       </label>
                       <input
@@ -457,7 +504,7 @@ export default function BookingPage() {
                           onChange={handleCheckboxChange}
                           className="accent-[#e2b714]"
                         />
-                        Indoor Ballroom / Hall
+                        Indoor Hall
                       </label>
                       <label className="flex items-center gap-2 py-2 text-gray-700">
                         <input

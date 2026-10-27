@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     // Email to admin
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: "thedamanclub@gmail.com",
+      to: "inquiry.thedamanclub@gmail.com",
       subject: `New Booking Inquiry - ${formData.inquiryType}`,
       html: emailContent,
     };

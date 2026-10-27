@@ -155,7 +155,7 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">Email Us</h3>
               <p className="text-gray-700 font-semibold mb-2">
-                thedamanclub@gmail.com
+                inquiry.thedamanclub@gmail.com
               </p>
               <p className="text-gray-500 text-sm">
                 We&apos;ll respond within 24 hours
